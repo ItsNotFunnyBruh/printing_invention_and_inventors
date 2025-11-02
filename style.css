@@ -1,0 +1,154 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: #121212;
+  overflow: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 15px 0;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #8a2387, #e94057, #f27121);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  text-shadow: 0 0 10px #fff;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 100%;
+}
+
+main {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.slide {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+  background-size: 300% 300%;
+  animation: gradient-animation 15s ease infinite;
+}
+
+#intro {
+  background-image: linear-gradient(-45deg, #000428, #004e92, #1cb5e0);
+}
+#coster {
+  background-image: linear-gradient(-45deg, #434343, #000000, #434343);
+}
+#gutenberg {
+  background-image: linear-gradient(-45deg, #8a2387, #e94057, #f27121);
+}
+#scheffer {
+  background-image: linear-gradient(-45deg, #1d2b64, #f8cdda, #1d2b64);
+}
+#fiol {
+  background-image: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+}
+#fedorov {
+  background-image: linear-gradient(-45deg, #4b134f, #c94b4b, #4b134f);
+}
+#manutius {
+  background-image: linear-gradient(-45deg, #1c92d2, #f2fcfe, #1c92d2);
+}
+#conclusion {
+  background-image: linear-gradient(-45deg, #373b44, #4286f4, #373b44);
+}
+
+.slide-content {
+  max-width: 800px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(50px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.slide.visible .slide-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.slide-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ddd;
+  font-style: italic;
+}
+
+.slide-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
